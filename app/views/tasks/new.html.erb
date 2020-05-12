@@ -1,1 +1,13 @@
-here use simple_form_for(tasks) do |t|
+<!--here I use simple_form_for(task[s]?) do |t| ?-->
+<h1>new task</h1>
+
+
+
+<!-- <%= # render "form", task: @task %>  for partial & dry -->
+
+
+<%= form_for(@task) do |t| %>
+  <%= t.label :name %>
+  <%= t.text_field :name %>
+  <%= t.submit %>
+<% end %>

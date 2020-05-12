@@ -1,1 +1,9 @@
 <h1>here is the task index;</h1>
+<ul>
+  <% @tasks.each do |t| %>
+    <li><%= link_to '#{task.title}', 'tasks/#{task.id}' %></li>
+<% end %>
+</ul>
+
+
+<%= link_to "Add a task", tasks_new_path %>
