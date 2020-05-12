@@ -3,6 +3,14 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
+  def new
+    @task = Task.new
+  end
+
   def create
     @task = Task.new(task_params)
     @task.save
@@ -11,7 +19,7 @@ class TasksController < ApplicationController
 
   # first find the task, then edit it..
 
-  def show
+  def edit
     @task = Task.find(params[:id])
   end
 
@@ -27,11 +35,11 @@ class TasksController < ApplicationController
     redirect_to tasks_path(@tasks)
   end
 
-  #let's add some security
+  # let's add some security
 
   private
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:title, :details, :completed)
   end
 end

@@ -1,13 +1,12 @@
-<!--here I use simple_form_for(task[s]?) do |t| ?-->
 <h1>new task</h1>
 
+<%= form_for(@task) do |f| %>
+  <%= f.label :title %>
+  <%= f.label :details %>
+  <%= f.text_area :details %>
+  <%= f.check_box :completed %> Completed
+  <%= f.submit %>
 
+<%= link_to 'Back', tasks_path %>
 
-<!-- <%= # render "form", task: @task %>  for partial & dry -->
-
-
-<%= form_for(@task) do |t| %>
-  <%= t.label :name %>
-  <%= t.text_field :name %>
-  <%= t.submit %>
 <% end %>
